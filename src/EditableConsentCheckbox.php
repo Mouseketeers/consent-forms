@@ -1,5 +1,14 @@
 <?php
 
+namespace Mouseketeers\ConsentForms;
+
+use SilverStripe\UserForms\Model\EditableFormField;
+use SilverStripe\Forms\FieldList;
+use SilverStripe\Forms\DropdownField;
+use SilverStripe\Forms\TextField;
+use SilverStripe\ORM\FieldType\DBField;
+
+
 class EditableConsentCheckbox extends EditableFormField {
 	
 	private static $singular_name = 'Consent Checkbox Field';

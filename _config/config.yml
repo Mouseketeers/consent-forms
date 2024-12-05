@@ -1,6 +1,6 @@
 ---
 Name: consent-forms
 ---
-Form:
+SilverStripe\Forms\Form:
   extensions:
-    - ConsentFormExtension
+    - Mouseketeers\ConsentForms\ConsentFormExtension

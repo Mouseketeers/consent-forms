@@ -1,4 +1,10 @@
-<?php 
+<?php
+
+namespace Mouseketeers\ConsentForms;
+
+use SilverStripe\Core\Extension;
+use Mouseketeers\ConsentRecords\ConsentRecord;
+ 
 class ConsentFormExtension extends Extension {
 
 	private static $ignoredFields = array(

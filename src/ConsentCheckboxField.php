@@ -1,5 +1,10 @@
 <?php
 
+namespace Mouseketeers\ConsentForms;
+
+use SilverStripe\Forms\CheckboxField;
+
+
 class ConsentCheckboxField extends CheckboxField {
 
 	protected $consentIDFieldName = 'Email';
