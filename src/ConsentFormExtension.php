@@ -2,7 +2,7 @@
 
 namespace Mouseketeers\ConsentForms;
 
-use SilverStripe\CoreExtension;
+use SilverStripe\Core\Extension;
 use Mouseketeers\ConsentRecords\ConsentRecord;
  
 class ConsentFormExtension extends Extension {
