@@ -6,18 +6,21 @@ class ConsentFormExtension extends Extension {
 		'HiddenField',
 		'BackURL',
 		'PasswordField',
-		'ConfirmedPasswordField'
+		'ConfirmedPasswordField',
+		'ReadonlyField'
 	);
-
 	public function afterCallActionHandler($request, $action) {
 
 		$form = $this->owner;
+
+		if($form->validator && $form->validator->getErrors()) return;
+
 		$fields = $form->Fields();
 		
 		$consentFields = [];
 
 		foreach($fields as $field) {
-			if($field->class == 'ConsentCheckboxField') {
+			if($field->class == 'ConsentCheckboxField' && $field->value == 1) {
 				$consentFields[] = $field;
 			}
 		}
@@ -36,12 +39,11 @@ class ConsentFormExtension extends Extension {
 			}
 		}
 
-		foreach ($consentFields as $consentField) {
-			
+		foreach($consentFields as $consentField) {
 			$consentIDFieldName = $consentField->getConsentIDFieldName();
 			$consentIDField = $fields->fieldByName($consentIDFieldName);
 			$consentType = $consentField->getConsentType();
-
+			
 			$consentRecord = new ConsentRecord();
 			$consentRecord->ConsentID = $consentIDField->dataValue();
 			$consentRecord->ConsentType = $consentType;
