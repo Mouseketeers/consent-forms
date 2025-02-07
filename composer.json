@@ -15,7 +15,7 @@
         }
     ],
     "require": {
-        "mouseketeers/consent-records": "@dev"
+        "mouseketeers/consent-records": "^2"
     },
     "config": {
         "process-timeout": 600

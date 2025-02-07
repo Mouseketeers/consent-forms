@@ -4,60 +4,49 @@ namespace Mouseketeers\ConsentForms;
 
 use SilverStripe\Core\Extension;
 use Mouseketeers\ConsentRecords\ConsentRecord;
+use Mouseketeers\ConsentForms\EditableConsentCheckbox;
+
  
 class ConsentFormExtension extends Extension {
 
-	private static $ignoredFields = array(
-		'ConsentCheckboxField',
-		'HiddenField',
-		'BackURL',
-		'PasswordField',
-		'ConfirmedPasswordField',
-		'ReadonlyField'
-	);
-	public function afterCallActionHandler($request, $action) {
+	public function afterCallActionHandler($request, $action, $actionRes) {
 
-		$form = $this->owner;
+		if($action == 'Form') {
 
-		if($form->validator && $form->validator->getErrors()) return;
-
-		$fields = $form->Fields();
-		
-		$consentFields = [];
-
-		foreach($fields as $field) {
-			if($field->class == 'ConsentCheckboxField' && $field->value == 1) {
-				$consentFields[] = $field;
-			}
-		}
-		if(!$consentFields) return;
-
-		$formData = [];
-		
-		foreach($fields as $field) {
-			if(in_array($field->class, self::$ignoredFields)) {
-				continue;
-			}
-			$key = ($field->title) ? $field->title : $field->name;
-			$value = $field->dataValue();
-			if($value) {
-				$formData[] = $key . ': ' . $value;	
-			}
-		}
-
-		foreach($consentFields as $consentField) {
-			$consentIDFieldName = $consentField->getConsentIDFieldName();
-			$consentIDField = $fields->fieldByName($consentIDFieldName);
-			$consentType = $consentField->getConsentType();
+			$form = $this->owner;
 			
-			$consentRecord = new ConsentRecord();
-			$consentRecord->ConsentID = $consentIDField->dataValue();
-			$consentRecord->ConsentType = $consentType;
-			$consentRecord->URL = $form->request->getHeader('Referer');
-			$consentRecord->ConsentStatement = $consentField->title;
-			$consentRecord->ConsentData = implode(', ', $formData);
+			if($form->validator && $form->validator->getErrors()) return;
 
-			$consentRecord->write();
+			$vars = $request->postVars();
+			$fields = $form->Fields();
+
+			$consentFields = [];
+			$formData = [];
+
+			foreach($fields as $field) 
+			{
+				if($field->ClassName == EditableConsentCheckbox::class && $vars[$field->Name] == 1)
+				{
+					$consentFields[] = $field->getFormField();
+				}
+				else 
+				{
+					$key = ($field->title) ? $field->title : $field->name;
+					if(isset($vars[$field->Name])) {
+						$formData[] = $key . ': ' . $vars[$field->Name];	
+					}					
+				}
+			}
+			foreach($consentFields as $consentField) 
+			{
+				$consentRecord = new ConsentRecord();
+				$consentRecord->ConsentID = $vars[$consentField->getConsentIDFieldName()];
+				$consentRecord->ConsentType = $consentField->getConsentType();
+				$consentRecord->URL = $form->request->getHeader('Referer');
+				$consentRecord->ConsentStatement = $consentField->title;
+				$consentRecord->ConsentData = implode(', ', $formData);
+				$consentRecord->write();
+			}
 		}
 	}	
 }

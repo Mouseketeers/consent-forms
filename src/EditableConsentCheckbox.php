@@ -10,6 +10,8 @@ use SilverStripe\ORM\FieldType\DBField;
 
 
 class EditableConsentCheckbox extends EditableFormField {
+
+	private static $table_name = 'EditableConsentCheckbox';
 	
 	private static $singular_name = 'Consent Checkbox Field';
 	
@@ -17,24 +19,34 @@ class EditableConsentCheckbox extends EditableFormField {
 	
 	static $icon = 'consent-forms/images/editableconsentcheckbox.png';
 
-	public function getFieldConfiguration() {
+    private static $db = [
+    	'ConsentIDField' => 'Varchar(255)'
+    ];	
 
-		$fields = new FieldList();
+    public function getCMSFields()
+    {
+        $this->beforeUpdateCMSFields(function ($fields) {
+            $fields->addFieldsToTab(
+                'Root.Main',
+                [
+                    DropdownField::create(
+                        'ConsentIDField',
+                        _t(__CLASS__.'.ConsentIDField', 'Consent ID Field'),
+                      	$this->Parent()->Fields()->map('Name', 'Title')->toArray()
+                    )
+                ]
+            );
+        });
 
-		$consentID     = $this->getSetting('ConsentID');
-		$otherFields = $this->Parent()->Fields();
+        return parent::getCMSFields();
+    }
 
-		$otherFields = $otherFields->map('Name', 'Title')->toArray();
-		$pre = "Fields[$this->ID][CustomSettings]";
-
-		$fields->push(
-			DropdownField::create("{$pre}[ConsentID]", _t('EditableFormField.ConsentID', 'Consent ID'), $otherFields, $consentID)->setRightTitle('Consent ID is typically an e-mail address')
-		);
-		return $fields;
-	}	
-	public function getFormField() {
+	public function getFormField() 
+	{
 		
-		$consentID = $this->getSetting('ConsentID');
+		$consentID = $this->ConsentIDField;
+
+		// print_r($this->ConsentIDField);die();
 		
 		$field = ConsentCheckboxField::create( $this->Name, $this->Title)
 			->setConsentIDFieldName($consentID)
@@ -45,18 +57,5 @@ class EditableConsentCheckbox extends EditableFormField {
 		$field->setAttribute('data-msg-required', $errorMessage);
 		
 		return $field;
-	}
-	public function getFieldValidationOptions() {
-		$fields = new FieldList(
-			new TextField($this->getFieldName('CustomErrorMessage'), _t('EditableFormField.CUSTOMERROR','Custom Error Message'), $this->CustomErrorMessage)
-		);
-		return $fields;
-	}
-	public function getIcon() {
-		return  self::$icon;
-	}
-	public function getErrorMessage() {
-		// return $this->CustomErrorMessage;
-		return DBField::create_field('Varchar', $this->CustomErrorMessage);
 	}
 }
