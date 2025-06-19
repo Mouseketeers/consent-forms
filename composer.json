@@ -16,7 +16,7 @@
     ],
     "require": {
         "silverstripe/framework": "^3.6",
-        "mouseketeers/consent-records": "@dev"
+        "mouseketeers/consent-records": "^1"
     },
     "minimum-stability": "stable"
 }
