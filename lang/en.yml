@@ -2,4 +2,6 @@ en:
   EditableConsentCheckbox:
     PLURALNAME: 'Consent Checkboxes'
     SINGULARNAME: 'Consent Checkbox'
-
+  EditableTermsAndPrivacyConsentCheckbox:
+    PLURALNAME: 'Terms and Privacy Checkboxes'
+    SINGULARNAME: 'Terms and Privacy Checkbox'

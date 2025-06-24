@@ -1,0 +1,5 @@
+de:
+  EditableTermsAndPrivacyConsentCheckbox:
+    ConsentStatement: 'Ich stimme den {terms} zu und habe die {privacypolicy} gelesen.'
+    Terms: 'Nutzungsbedingungen'
+    PrivacyPolicy: 'Datenschutzbestimmungen'

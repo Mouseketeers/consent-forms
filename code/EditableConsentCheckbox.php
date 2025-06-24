@@ -19,7 +19,7 @@ class EditableConsentCheckbox extends EditableFormField {
 		$pre = "Fields[$this->ID][CustomSettings]";
 
 		$fields->push(
-			DropdownField::create("{$pre}[ConsentID]", _t('EditableFormField.ConsentID', 'Consent ID'), $otherFields, $consentID)->setRightTitle('Consent ID is typically an e-mail address')
+			DropdownField::create("{$pre}[ConsentID]", _t('EditableConsentCheckbox.ConsentID', 'Consent ID'), $otherFields, $consentID)->setRightTitle('Consent ID is typically an e-mail address')
 		);
 		return $fields;
 	}	
@@ -37,17 +37,10 @@ class EditableConsentCheckbox extends EditableFormField {
 		
 		return $field;
 	}
-	public function getFieldValidationOptions() {
-		$fields = new FieldList(
-			new TextField($this->getFieldName('CustomErrorMessage'), _t('EditableFormField.CUSTOMERROR','Custom Error Message'), $this->CustomErrorMessage)
-		);
-		return $fields;
+	public function getErrorMessage() {
+        return DBField::create_field('Varchar', $this->CustomErrorMessage);
 	}
 	public function getIcon() {
 		return  self::$icon;
-	}
-	public function getErrorMessage() {
-		// return $this->CustomErrorMessage;
-		return DBField::create_field('Varchar', $this->CustomErrorMessage);
-	}
+	}	
 }
