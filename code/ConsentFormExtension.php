@@ -20,7 +20,7 @@ class ConsentFormExtension extends Extension {
 		$consentFields = [];
 
 		foreach($fields as $field) {
-			if($field->class == 'ConsentCheckboxField' && $field->value == 1) {
+			if($field instanceof ConsentCheckboxField && $field->value == 1) {
 				$consentFields[] = $field;
 			}
 		}

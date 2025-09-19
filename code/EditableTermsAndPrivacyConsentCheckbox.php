@@ -1,11 +1,16 @@
 <?php
 
-class EditableConsentCheckbox extends EditableFormField {
+class EditableTermsAndPrivacyConsentCheckbox extends EditableConsentCheckbox {
 	
-	private static $singular_name = 'Consent Checkbox Field';
-	private static $plural_name = 'Consent Checkbox Fields';
+	private static $singular_name = 'Terms and Privacy Consent Checkbox Field';
+	private static $plural_name = 'Terms and Privacy Consent Checkbox Fields';
 	
 	static $icon = 'consent-forms/images/editableconsentcheckbox.png';
+
+    public function populateDefaults() {
+        parent::populateDefaults();
+        $this->Title = self::$singular_name;
+    }
 
 	public function getFieldConfiguration() {
 
@@ -18,7 +23,7 @@ class EditableConsentCheckbox extends EditableFormField {
 		$pre = "Fields[$this->ID][CustomSettings]";
 
 		$fields->push(
-			DropdownField::create("{$pre}[ConsentID]", _t('EditableConsentCheckbox.ConsentID', 'Consent ID'), $otherFields, $consentID)->setRightTitle('Consent ID is typically an e-mail address')
+			DropdownField::create("{$pre}[ConsentID]", _t('EditableTermsAndPrivacyConsentCheckbox.ConsentID', 'Consent ID'), $otherFields, $consentID)->setRightTitle('Consent ID is typically an e-mail address')
 		);
 		return $fields;
 	}	
@@ -26,7 +31,7 @@ class EditableConsentCheckbox extends EditableFormField {
 		
 		$consentID = $this->getSetting('ConsentID');
 		
-		$field = ConsentCheckboxField::create( $this->Name, $this->Title)
+		$field = TermsAndPrivacyConsentCheckboxField::create($this->Name)
 			->setConsentIDFieldName($consentID);
 		
 		$errorMessage = ($this->getErrorMessage()) ? $this->getErrorMessage() : $field->getCustomValidationMessage();
@@ -35,10 +40,4 @@ class EditableConsentCheckbox extends EditableFormField {
 		
 		return $field;
 	}
-	public function getErrorMessage() {
-        return DBField::create_field('Varchar', $this->CustomErrorMessage);
-	}
-	public function getIcon() {
-		return  self::$icon;
-	}	
 }

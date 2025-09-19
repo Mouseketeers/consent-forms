@@ -1,0 +1,8 @@
+de:
+  EditableTermsAndPrivacyConsentCheckbox:
+    ConsentStatement: 'Ich stimme den {terms} zu und habe die {privacypolicy} gelesen.'
+    Terms: 'Nutzungsbedingungen'
+    PrivacyPolicy: 'Datenschutzbestimmungen'
+  EditablePrivacyTextField:
+    ImpliedAgreement: 'Die von Ihnen angegebenen personenbezogenen Daten werden ausschließlich zur Bearbeitung Ihrer Anfrage verwendet. Weitere Informationen finden Sie in unserer {privacypolicy}.'
+    PrivacyPolicy: 'Datenschutzbestimmungen'
