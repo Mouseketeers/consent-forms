@@ -26,7 +26,7 @@ class EditablePrivacyTextField extends EditableConsentCheckbox {
 
         $title = _t(
             'EditablePrivacyTextField.ImpliedAgreement',
-            'The personal data you provide will be used exclusively to handle your inquiry. For further details, please refer to our {privacypolicy}.',
+            'We use the information you provide exclusively to handle your inquiry. For further details, please refer to our {privacypolicy}.',
             ['privacypolicy' => $privacy]
         );
 		
