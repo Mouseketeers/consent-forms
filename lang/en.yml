@@ -12,7 +12,7 @@ en:
     ConsentStatement: 'I agree to the {terms} and have read the {privacypolicy}.'
     Terms: 'Terms of Service'
     PrivacyPolicy: 'Privacy Policy'
-  EditablePrivacyTextField:
+  EditablePrivacyNoticeField:
     SINGULARNAME: 'Privacy Text Field'
     PLURALNAME: 'Privacy Text Fields'
     ImpliedAgreement: 'We use the information you provide exclusively to handle your inquiry. For further details, please refer to our {privacypolicy}.'
