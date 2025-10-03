@@ -12,7 +12,7 @@ en:
     ConsentStatement: 'I agree to the {terms} and acknowledge the {privacypolicy}.'
     Terms: 'Terms of Service'
     PrivacyPolicy: 'Privacy Policy'
-  EditablePrivacyNoticeField:
+  PrivacyNoticeField:
     SINGULARNAME: 'Privacy Notice'
     ImpliedAgreement: 'We use the information you provide exclusively to handle your inquiry. For further details, please refer to our {privacypolicy}.'
     PrivacyPolicy: 'Privacy Policy'

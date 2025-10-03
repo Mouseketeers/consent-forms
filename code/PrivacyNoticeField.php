@@ -13,7 +13,7 @@ class PrivacyNoticeField extends LiteralField {
         $privacyPage = $siteConfig->PrivacyPageID ? $siteConfig->PrivacyPage() : null;
         
         $baseText = _t(
-            'EditablePrivacyNoticeField.ImpliedAgreementText',
+            'PrivacyNoticeField.ImpliedAgreementText',
             'We use the information you provide exclusively to handle your inquiry.'
         );
         
@@ -27,7 +27,7 @@ class PrivacyNoticeField extends LiteralField {
             );
             
             $privacyText = _t(
-                'EditablePrivacyNoticeField.PrivacyPolicyReferenceText',
+                'PrivacyNoticeField.PrivacyPolicyReferenceText',
                 'For further details, please refer to our {privacypolicy}.',
                 ['privacypolicy' => $privacyLink]
             );
