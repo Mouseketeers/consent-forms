@@ -5,16 +5,15 @@ en:
   EditableTermsAndPrivacyConsentCheckbox:
     PLURALNAME: 'Terms and Privacy Checkboxes'
     SINGULARNAME: 'Terms and Privacy Checkbox'
-  EditableTermsAndPrivacyConsentCheckbox:
-    PLURALNAME: 'Terms and Privacy Checkboxes'
-    SINGULARNAME: 'Terms and Privacy Checkbox'
+  EditablePrivacyNoticeField:
+    PLURALNAME: 'Privacy Notices'
+    SINGULARNAME: 'Privacy Notice'
+  ConsentCheckboxField:
+    ConsentErrorMessage: 'Please give your consent'
   TermsAndPrivacyConsentCheckboxField:
     ConsentStatement: 'I agree to the {terms} and acknowledge the {privacypolicy}.'
     Terms: 'Terms of Service'
     PrivacyPolicy: 'Privacy Policy'
   PrivacyNoticeField:
-    SINGULARNAME: 'Privacy Notice'
-    ImpliedAgreement: 'We use the information you provide exclusively to handle your inquiry. For further details, please refer to our {privacypolicy}.'
-    PrivacyPolicy: 'Privacy Policy'
-  ConsentCheckboxField:
-    ConsentErrorMessage: 'Please give your consent'
+    ImpliedAgreement: 'We use the information you provide exclusively to handle your inquiry.'
+    PrivacyPolicyReferenceText: For further details, please refer to our {privacypolicy}.

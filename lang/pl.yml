@@ -1,0 +1,10 @@
+pl:
+  ConsentCheckboxField:
+    ConsentErrorMessage: 'Proszę wyrazić zgodę.'
+  TermsAndPrivacyConsentCheckboxField:
+    ConsentStatement: 'Zgadzam się z {terms} i potwierdzam zapoznanie się z {privacypolicy}.'
+    Terms: 'Warunki korzystania'
+    PrivacyPolicy: 'Polityka prywatności'
+  PrivacyNoticeField:
+    ImpliedAgreement: 'Używamy podanych przez Ciebie informacji wyłącznie w celu obsługi Twojego zapytania.'
+    PrivacyPolicyReferenceText: 'Aby uzyskać więcej informacji, zapoznaj się z naszą {privacypolicy}.'
