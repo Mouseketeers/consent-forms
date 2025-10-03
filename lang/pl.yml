@@ -7,4 +7,4 @@ pl:
     PrivacyPolicy: 'Polityka prywatności'
   PrivacyNoticeField:
     ImpliedAgreement: 'Używamy podanych przez Ciebie informacji wyłącznie w celu obsługi Twojego zapytania.'
-    PrivacyPolicyReferenceText: 'Aby uzyskać więcej informacji, zapoznaj się z naszą {privacypolicy}.'
+    PrivacyPolicyReference: 'Aby uzyskać więcej informacji, zapoznaj się z naszą {privacypolicy}.'

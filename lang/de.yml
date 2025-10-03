@@ -7,4 +7,4 @@ de:
     PrivacyPolicy: 'Datenschutzerklärung'
   PrivacyNoticeField:
     ImpliedAgreement: 'Wir verwenden die von Ihnen bereitgestellten Informationen ausschließlich, um Ihre Anfrage zu bearbeiten.'
-    PrivacyPolicyReferenceText: 'Weitere Einzelheiten finden Sie in unserer {privacypolicy}.'
+    PrivacyPolicyReference: 'Weitere Einzelheiten finden Sie in unserer {privacypolicy}.'

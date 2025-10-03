@@ -26,7 +26,8 @@ class PrivacyNoticeField extends LiteralField {
             );
             
             $privacyText = _t(
-                'PrivacyNoticeField.PrivacyPolicyReference',
+                'PrivacyNoticeField.PrivacyPolicyReference', 
+                'For further details, please refer to our {privacypolicy}.',
                 ['privacypolicy' => $privacyLink]
             );
             

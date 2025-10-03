@@ -32,6 +32,7 @@ class TermsAndPrivacyConsentCheckboxField extends ConsentCheckboxField {
         
         return _t(
             'TermsAndPrivacyConsentCheckboxField.ConsentStatement',
+            'I agree to the {terms} and acknowledge the {privacypolicy}.',
             [
                 'terms' => $terms,
                 'privacypolicy' => $privacy
