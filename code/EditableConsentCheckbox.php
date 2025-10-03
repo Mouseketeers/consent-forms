@@ -2,10 +2,10 @@
 
 class EditableConsentCheckbox extends EditableFormField {
 	
-	private static $singular_name = 'Consent Checkbox Field';
-	private static $plural_name = 'Consent Checkbox Fields';
+	private static $singular_name = 'Consent Checkbox';
+	private static $plural_name = 'Consent Checkboxes';
 	
-	static $icon = 'consent-forms/images/editableconsentcheckbox.png';
+	static $icon = 'consent-forms/images/privacy.png';
 
 	public function getFieldConfiguration() {
 

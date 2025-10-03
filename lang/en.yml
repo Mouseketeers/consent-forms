@@ -9,12 +9,11 @@ en:
     PLURALNAME: 'Terms and Privacy Checkboxes'
     SINGULARNAME: 'Terms and Privacy Checkbox'
   TermsAndPrivacyConsentCheckboxField:
-    ConsentStatement: 'I agree to the {terms} and have read the {privacypolicy}.'
+    ConsentStatement: 'I agree to the {terms} and acknowledge the {privacypolicy}.'
     Terms: 'Terms of Service'
     PrivacyPolicy: 'Privacy Policy'
   EditablePrivacyNoticeField:
-    SINGULARNAME: 'Privacy Text Field'
-    PLURALNAME: 'Privacy Text Fields'
+    SINGULARNAME: 'Privacy Notice'
     ImpliedAgreement: 'We use the information you provide exclusively to handle your inquiry. For further details, please refer to our {privacypolicy}.'
     PrivacyPolicy: 'Privacy Policy'
   ConsentCheckboxField:
