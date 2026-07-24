@@ -5,7 +5,6 @@ namespace Mouseketeers\ConsentForms;
 use SilverStripe\UserForms\Model\EditableFormField;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\DropdownField;
-use SilverStripe\Forms\TextField;
 use SilverStripe\ORM\FieldType\DBField;
 
 
@@ -13,11 +12,11 @@ class EditableConsentCheckbox extends EditableFormField {
 
 	private static $table_name = 'EditableConsentCheckbox';
 	
-	private static $singular_name = 'Consent Checkbox Field';
-	
+	private static $singular_name = 'Consent Checkbox';
+
 	private static $plural_name = 'Consent Checkboxes';
-	
-	static $icon = 'consent-forms/images/editableconsentcheckbox.png';
+
+	static $icon = 'consent-forms/images/privacy.png';
 
     private static $db = [
     	'ConsentIDField' => 'Varchar(255)'
@@ -49,8 +48,7 @@ class EditableConsentCheckbox extends EditableFormField {
 		// print_r($this->ConsentIDField);die();
 		
 		$field = ConsentCheckboxField::create( $this->Name, $this->Title)
-			->setConsentIDFieldName($consentID)
-			->setConsentType('ContactForm');
+			->setConsentIDFieldName($consentID);
 		
 		$errorMessage = ($this->getErrorMessage()) ? $this->getErrorMessage() : $field->getCustomValidationMessage();
 		$field->setAttribute('data-rule-required', 'true');

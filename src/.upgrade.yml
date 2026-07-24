@@ -2,3 +2,4 @@ mappings:
   ConsentFormExtension: Mouseketeers\ConsentForms\ConsentFormExtension
   EditableConsentCheckbox: Mouseketeers\ConsentForms\EditableConsentCheckbox
   ConsentCheckboxField: Mouseketeers\ConsentForms\ConsentCheckboxField
+  PrivacyNoticeField: Mouseketeers\ConsentForms\PrivacyNoticeField
