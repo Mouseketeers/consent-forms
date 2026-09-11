@@ -1,5 +1,5 @@
 {
-    "name": "mouseketeers/consent-forms",
+    "name": "mouseketeers/silverstripe-consent-forms",
     "description": "A SilverStripe module to handle user consents in forms",
     "type": "silverstripe-vendormodule",
     "keywords": [
@@ -15,7 +15,7 @@
         }
     ],
     "require": {
-        "mouseketeers/consent-records": "^2"
+        "mouseketeers/silverstripe-consent-records": "^2"
     },
     "config": {
         "process-timeout": 600
